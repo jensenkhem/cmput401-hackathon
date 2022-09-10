@@ -1,7 +1,17 @@
 from rest_framework import serializers
-from .models import Driver
+from .models import Driver, Passenger, Ride
 
 class DriverSerializer(serializers.ModelSerializer):
     class Meta:
         model = Driver
-        fields = ['name', 'longitude', 'latitude', 'desired_arrival_time', 'phone_number']
+        fields = "__all__"
+
+class PassengerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Passenger
+        fields = "__all__"
+
+class RideSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ride
+        fields = "__all__"
