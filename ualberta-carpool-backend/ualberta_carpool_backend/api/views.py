@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from rest_framework import viewsets
+from .serializers import DriverSerializer
+from .models import Driver
 
-# Create your views here.
+class DriverView(viewsets.ModelViewSet):
+    serializer_class = DriverSerializer
+    queryset = Driver.objects.all()
