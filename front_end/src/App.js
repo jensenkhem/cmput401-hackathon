@@ -3,17 +3,21 @@ import './App.css';
 import ulogo from './ua_logo_green_rgb.png';
 import plogo from './profile_logo.png';
 import clogo from './car_logo.png';
-import d_karma from './driver_karma.jpg'
-import r_rating from './rider_rating.png'
-import o_ride from './offer_ride.png'
-import s_ride from './scheduled_ride.png'
-import h_logo from './history_logo.png'
-
+import d_karma from './driver_karma.jpg';
+import r_rating from './rider_rating.png';
+import o_ride from './offer_ride.png';
+import s_ride from './scheduled_ride.png';
+import h_logo from './history_logo.png';
+import {Routes, Route, useNavigate} from 'react-router-dom'
 
 
 
 function App() {
-
+  
+  const openInNewTab = url => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -31,7 +35,7 @@ function App() {
         <header className='App-profile'>
           <h2>
             
-            <img style={{width: '20%' }} src = {plogo} alt="profile picture"/>
+            <img style={{width: '20%' }} src = {plogo} alt="profile picture" onClick={() => openInNewTab("https://cdn.dribbble.com/users/1461712/screenshots/4893489/dribbble_small.png?compress=1&resize=400x300")}/>
             Profile
           </h2>
         </header>
