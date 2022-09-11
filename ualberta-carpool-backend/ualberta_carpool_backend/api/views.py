@@ -1,10 +1,14 @@
 from tabnanny import check
+from math import sin, cos, radians, acos
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from .serializers import DriverSerializer, PassengerSerializer, RideSerializer
 from .models import Driver, Passenger, Ride
+
+
+EARTH_RADIUS_IN_MILES = 3958.761
 
 class DriverView(viewsets.ModelViewSet):
     serializer_class = DriverSerializer
@@ -39,4 +43,4 @@ class RideView(viewsets.ModelViewSet):
         if (current_passengers < q.capacity):
             ride_list.append(q)
 
-    queryset = Ride.objects.filter(id__in=ride_list)
+    queryset = Ride.objects.filter(driver__name__in=ride_list)
