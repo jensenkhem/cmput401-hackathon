@@ -19,15 +19,15 @@ class Driver(models.Model):
 class Ride(models.Model):
     driver = models.OneToOneField(Driver, on_delete=models.CASCADE)
     capacity = models.IntegerField(default=2)
+    
     def __str__(self):
-        # return self.passengers.values_list('name', flat=True)
-        # return self.passengers.all()
         return self.driver.name
 
 class Passenger(models.Model):
     name = models.CharField(max_length=50)
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
     ride = models.ForeignKey('Ride', on_delete=models.CASCADE, blank=True, null=True, related_name='passengers')
+    
     def __str__(self):
         return self.name
 

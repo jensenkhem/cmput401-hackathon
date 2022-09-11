@@ -1,3 +1,4 @@
+from cgi import test
 from tabnanny import check
 from django.shortcuts import render
 from rest_framework import viewsets
@@ -12,7 +13,6 @@ class PassengerView(viewsets.ModelViewSet):
     serializer_class = PassengerSerializer
     queryset = Passenger.objects.all()
 
-class RideView(viewsets.ModelViewSet):
+class RideView(viewsets.ModelViewSet): 
     serializer_class = RideSerializer
     queryset = Ride.objects.all()
-
